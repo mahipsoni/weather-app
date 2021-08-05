@@ -1,0 +1,9 @@
+<div class="container-fluid">
+    <div class="row mt-5">
+      <div class="col" *ngFor="let cityWeather of citiesWeather">
+        <app-city-card        
+          [weatherData] = "cityWeather"
+        ></app-city-card>
+      </div>
+    </div>    
+  </div>

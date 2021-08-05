@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-12 text-center border-bottom">
+            <h4>{{cityName}}</h4>
+        </div>
+    </div>
+    <div class="row mt-2 border-bottom">
+        <nav class="col-6" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a [routerLink]="['']">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">City</li>
+            </ol>
+        </nav>
+        <div class="col-6 ml-5 text-end"><span>Next 5 days Forecast at 9:00</span></div>
+    </div>
+    <div class="row mt-5 border-bottom" *ngFor="let cityForcast of cityForecastData">
+        <time class="col-4">
+            <strong>Date:</strong> {{cityForcast.dt * 1000 | date:'MMM d, y'}}
+        </time>
+        <div class="col-4">
+            <strong>Temperature:</strong> {{cityForcast.main.temp | number:'1.0-0'}}°C
+        </div>
+        <div class="col-4">
+            <strong>Sea Level:</strong> {{cityForcast.main.sea_level}}
+        </div>
+    </div>    
+</div>

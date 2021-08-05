@@ -1,0 +1,24 @@
+<div class="card text-center">
+    <div class="card-header">
+        Temperature: {{ weatherData.main.temp | number:'1.0-0' }}°C
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{weatherData.name}}</h5>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <time>Sunrise Time: {{weatherData.sys.sunrise * 1000 | date:'h:mm a'}}</time>
+        </li>
+        <li class="list-group-item">
+            <time>Sunset Time: {{weatherData.sys.sunset * 1000 | date:'h:mm a'}}</time>
+        </li>
+      </ul>      
+    </div>
+    <div class="card-footer text-muted">
+        <button 
+            [routerLink]="['/', weatherData.name, 'forecast']" 
+            class="btn btn-primary"
+        >
+            Next 5 Days Forecast
+        </button>
+    </div>
+  </div>
